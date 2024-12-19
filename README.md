@@ -1,6 +1,6 @@
 [![Massdriver][logo]][website]
 
-# engineer-access
+# k8s-token
 
 [![Release][release_shield]][release_url]
 [![Contributors][contributors_shield]][contributors_url]
@@ -26,23 +26,6 @@ Our bundles aren't intended to be used locally, outside of testing. Instead, our
 Bundles are the basic building blocks of infrastructure, applications, and architectures in [Massdriver][website]. Read more [here](https://docs.massdriver.cloud/concepts/bundles).
 
 ## Bundle
-
-<!-- COMPLIANCE:START -->
-
-Security and compliance scanning of our bundles is performed using [Bridgecrew](https://www.bridgecrew.cloud/). Massdriver also offers security and compliance scanning of operational infrastructure configured and deployed using the platform.
-
-| Benchmark                                                                                                                                                                                                                                                       | Description                        |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- |
-| [![Infrastructure Security](https://www.bridgecrew.cloud/badges/github/massdriver-cloud/engineer-access/general)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=&benchmark=INFRASTRUCTURE+SECURITY) | Infrastructure Security Compliance |
-
-
-| [![PCI-DSS](https://www.bridgecrew.cloud/badges/github/massdriver-cloud/engineer-access/pci>)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=&benchmark=PCI-DSS+V3.2) | Payment Card Industry Data Security Standards Compliance |
-| [![NIST-800-53](https://www.bridgecrew.cloud/badges/github/massdriver-cloud/engineer-access/nist>)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=&benchmark=NIST-800-53) | National Institute of Standards and Technology Compliance |
-| [![ISO27001](https://www.bridgecrew.cloud/badges/github/massdriver-cloud/engineer-access/iso>)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=&benchmark=ISO27001) | Information Security Management System, ISO/IEC 27001 Compliance |
-| [![SOC2](https://www.bridgecrew.cloud/badges/github/massdriver-cloud/engineer-access/soc2>)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=&benchmark=SOC2)| Service Organization Control 2 Compliance |
-| [![HIPAA](https://www.bridgecrew.cloud/badges/github/massdriver-cloud/engineer-access/hipaa>)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=&benchmark=HIPAA) | Health Insurance Portability and Accountability Compliance |
-
-<!-- COMPLIANCE:END -->
 
 ### Params
 
@@ -95,7 +78,7 @@ Resources created by this bundle that can be connected to other bundles.
 
 ### Bug Reports & Feature Requests
 
-Did we miss something? Please [submit an issue](https://github.com/massdriver-cloud/engineer-access/issues>) to report any bugs or request additional features.
+Did we miss something? Please [submit an issue](https://github.com/massdriver-cloud/k8s-token/issues>) to report any bugs or request additional features.
 
 ### Developing
 
@@ -129,23 +112,23 @@ Please connect with us!
 
 [logo]: https://raw.githubusercontent.com/massdriver-cloud/docs/main/static/img/logo-with-logotype-horizontal-400x110.svg
 
-[docs]: https://docs.massdriver.cloud?utm_source=engineer-access&utm_medium=engineer-access&utm_campaign=engineer-access&utm_content=engineer-access
-[website]: https://www.massdriver.cloud?utm_source=engineer-access&utm_medium=engineer-access&utm_campaign=engineer-access&utm_content=engineer-access
+[docs]: https://docs.massdriver.cloud?utm_source=k8s-token&utm_medium=k8s-token&utm_campaign=k8s-token&utm_content=k8s-token
+[website]: https://www.massdriver.cloud?utm_source=k8s-token&utm_medium=k8s-token&utm_campaign=k8s-token&utm_content=k8s-token
 [github]: https://github.com/massdriver-cloud
 [linkedin]: https://www.linkedin.com/company/massdriver/
 
-[contributors_shield]: https://img.shields.io/github/contributors/massdriver-cloud/engineer-access.svg?style=for-the-badge>
-[contributors_url]: https://github.com/massdriver-cloud/engineer-access/graphs/contributors>
-[forks_shield]: https://img.shields.io/github/forks/massdriver-cloud/engineer-access.svg?style=for-the-badge>
-[forks_url]: https://github.com/massdriver-cloud/engineer-access/network/members>
-[stars_shield]: https://img.shields.io/github/stars/massdriver-cloud/engineer-access.svg?style=for-the-badge>
-[stars_url]: https://github.com/massdriver-cloud/engineer-access/stargazers>
-[issues_shield]: https://img.shields.io/github/issues/massdriver-cloud/engineer-access.svg?style=for-the-badge>
-[issues_url]: https://github.com/massdriver-cloud/engineer-access/issues>
-[release_url]: https://github.com/massdriver-cloud/engineer-access/releases/latest>
-[release_shield]: https://img.shields.io/github/release/massdriver-cloud/engineer-access.svg?style=for-the-badge>
-[license_shield]: https://img.shields.io/github/license/massdriver-cloud/engineer-access.svg?style=for-the-badge>
-[license_url]: https://github.com/massdriver-cloud/engineer-access/blob/main/LICENSE>
+[contributors_shield]: https://img.shields.io/github/contributors/massdriver-cloud/k8s-token.svg?style=for-the-badge
+[contributors_url]: https://github.com/massdriver-cloud/k8s-token/graphs/contributors
+[forks_shield]: https://img.shields.io/github/forks/massdriver-cloud/k8s-token.svg?style=for-the-badge
+[forks_url]: https://github.com/massdriver-cloud/k8s-token/network/members
+[stars_shield]: https://img.shields.io/github/stars/massdriver-cloud/k8s-token.svg?style=for-the-badge
+[stars_url]: https://github.com/massdriver-cloud/k8s-token/stargazers
+[issues_shield]: https://img.shields.io/github/issues/massdriver-cloud/k8s-token.svg?style=for-the-badge
+[issues_url]: https://github.com/massdriver-cloud/k8s-token/issues
+[release_url]: https://github.com/massdriver-cloud/k8s-token/releases/latest
+[release_shield]: https://img.shields.io/github/release/massdriver-cloud/k8s-token.svg?style=for-the-badge
+[license_shield]: https://img.shields.io/github/license/massdriver-cloud/k8s-token.svg?style=for-the-badge
+[license_url]: https://github.com/massdriver-cloud/k8s-token/blob/main/LICENSE
 
 [email_url]: mailto:support@massdriver.cloud
 [email_shield]: https://img.shields.io/badge/email-Massdriver-black.svg?style=for-the-badge&logo=mail.ru&color=000000
