@@ -19,6 +19,3 @@ rules:
       - {{ . | quote }}
     {{- end }}
 {{- end }}
-# - apiGroups: ["*"]
-#   resources: ["pods", "pods/log", "pods/portforward"]
-#   verbs: ["get", "list", "create"]

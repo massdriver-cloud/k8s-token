@@ -73,7 +73,7 @@ params:
         required:
           - apiGroups
           - resources
-          # - verbs # Commenting this out for now since it appears to trigger an HTML 5 validation error
+          - verbs
         properties:
           apiGroups:
             type: array
