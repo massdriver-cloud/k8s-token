@@ -1,0 +1,142 @@
+schema: draft-07
+name: "k8s-token"
+description: "Generates a Kubernetes service account token with the specified permissions"
+source_url: github.com/massdriver-cloud/k8s-token
+access: private
+type: infrastructure
+
+steps:
+  - path: chart
+    provisioner: helm
+    config:
+      namespace: .params.namespace
+  - path: artifact
+    provisioner: opentofu
+
+
+params:
+  examples:
+    - __name: Admin
+      rules:
+        - apiGroups:
+            - "*"
+          resources:
+            - "*"
+          verbs:
+            - get
+            - list
+            - watch
+            - create
+            - delete
+            - update
+            - patch
+    - __name: Read-only
+      rules:
+        - apiGroups:
+            - "*"
+          resources:
+            - "*"
+          verbs:
+            - get
+            - list
+            - watch
+    - __name: Debugging
+      rules:
+        - apiGroups:
+            - "*"
+          resources:
+            - "pods"
+            - "pods/log"
+            - "pods/portforward"
+          verbs:
+            - get
+            - list
+            - create
+
+  required:
+    - namespace
+    - rules
+  properties:
+    namespace:
+      type: string
+      title: Namespace
+      description: Namespace to deploy into
+      default: "default"
+      $md.immutable: true
+    rules:
+      type: array
+      title: Rules
+      description: List of rules to apply to the service account
+      minItems: 1
+      items:
+        type: object
+        required:
+          - apiGroups
+          - resources
+          # - verbs # Commenting this out for now since it appears to trigger an HTML 5 validation error
+        properties:
+          apiGroups:
+            type: array
+            title: API Groups
+            description: List of API groups to apply the rule to
+            minItems: 1
+            default: ["*"]
+            uniqueItems: true
+            items:
+              type: string
+          resources:
+            type: array
+            title: Resources
+            description: List of resources to apply the rule to
+            default: ["*"]
+            minItems: 1
+            uniqueItems: true
+            items:
+              type: string
+          verbs:
+            type: array
+            title: Verbs
+            description: List of verbs to apply to the rule
+            default: ["get"]
+            minItems: 1
+            uniqueItems: true
+            items:
+              type: string
+              enum:
+                - get
+                - list
+                - watch
+                - create
+                - delete
+                - update
+                - patch
+
+
+connections:
+  required:
+    - kubernetes_cluster
+  properties:
+    kubernetes_cluster:
+      $ref: massdriver/kubernetes-cluster
+
+
+artifacts:
+  required:
+    - token
+  properties:
+    token:
+      $ref: massdriver/kubernetes-cluster
+
+
+ui:
+  ui:order:
+    - "namespace"
+    - "rules"
+  rules:
+    ui:order:
+      - apiGroups
+      - resources
+      - verbs
+    verbs:
+      ui:widget: "checkboxes"
+

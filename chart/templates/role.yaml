@@ -1,0 +1,24 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: {{ include "k8s-token.fullname" . }}-token
+  labels:
+    {{- include "k8s-token.labels" . | nindent 4 }}
+rules:
+{{- range .Values.rules }}
+  - apiGroups:
+    {{- range .apiGroups }}
+      - {{ . | quote }}
+    {{- end }}
+    resources:
+    {{- range .resources }}
+      - {{ . | quote }}
+    {{- end }}
+    verbs:
+    {{- range .verbs }}
+      - {{ . | quote }}
+    {{- end }}
+{{- end }}
+# - apiGroups: ["*"]
+#   resources: ["pods", "pods/log", "pods/portforward"]
+#   verbs: ["get", "list", "create"]
