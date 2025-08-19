@@ -3,7 +3,6 @@ name: k8s-token
 version: 1.0.0
 description: Generates a Kubernetes service account token with the specified permissions
 source_url: https://github.com/massdriver-cloud/k8s-token
-type: application
 steps:
 - path: chart
   provisioner: helm
