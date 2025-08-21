@@ -1,68 +1,63 @@
 schema: draft-07
-name: "k8s-token"
-description: "Generates a Kubernetes service account token with the specified permissions"
-source_url: github.com/massdriver-cloud/k8s-token
-access: private
-type: infrastructure
-
+name: k8s-token
+version: 1.0.0
+description: Generates a Kubernetes service account token with the specified permissions
+source_url: https://github.com/massdriver-cloud/k8s-token
 steps:
-  - path: chart
-    provisioner: helm
-    config:
-      namespace: .params.namespace
-  - path: artifact
-    provisioner: opentofu
-
-
+- path: chart
+  provisioner: helm
+  config:
+    namespace: ".params.namespace"
+- path: artifact
+  provisioner: opentofu
 params:
   examples:
-    - __name: Admin
-      rules:
-        - apiGroups:
-            - "*"
-          resources:
-            - "*"
-          verbs:
-            - get
-            - list
-            - watch
-            - create
-            - delete
-            - update
-            - patch
-    - __name: Read-only
-      rules:
-        - apiGroups:
-            - "*"
-          resources:
-            - "*"
-          verbs:
-            - get
-            - list
-            - watch
-    - __name: Debugging
-      rules:
-        - apiGroups:
-            - "*"
-          resources:
-            - "pods"
-            - "pods/log"
-            - "pods/portforward"
-          verbs:
-            - get
-            - list
-            - create
-
+  - __name: Admin
+    rules:
+    - apiGroups:
+      - "*"
+      resources:
+      - "*"
+      verbs:
+      - get
+      - list
+      - watch
+      - create
+      - delete
+      - update
+      - patch
+  - __name: Read-only
+    rules:
+    - apiGroups:
+      - "*"
+      resources:
+      - "*"
+      verbs:
+      - get
+      - list
+      - watch
+  - __name: Debugging
+    rules:
+    - apiGroups:
+      - "*"
+      resources:
+      - pods
+      - pods/log
+      - pods/portforward
+      verbs:
+      - get
+      - list
+      - create
   required:
-    - namespace
-    - rules
+  - namespace
+  - rules
   properties:
     namespace:
       type: string
       title: Namespace
       description: Namespace to deploy into
-      default: "default"
-      $md.immutable: true
+      default: default
+      "$md.immutable": true
     rules:
       type: array
       title: Rules
@@ -71,16 +66,17 @@ params:
       items:
         type: object
         required:
-          - apiGroups
-          - resources
-          - verbs
+        - apiGroups
+        - resources
+        - verbs
         properties:
           apiGroups:
             type: array
             title: API Groups
             description: List of API groups to apply the rule to
             minItems: 1
-            default: ["*"]
+            default:
+            - "*"
             uniqueItems: true
             items:
               type: string
@@ -88,7 +84,8 @@ params:
             type: array
             title: Resources
             description: List of resources to apply the rule to
-            default: ["*"]
+            default:
+            - "*"
             minItems: 1
             uniqueItems: true
             items:
@@ -97,46 +94,40 @@ params:
             type: array
             title: Verbs
             description: List of verbs to apply to the rule
-            default: ["get"]
+            default:
+            - get
             minItems: 1
             uniqueItems: true
             items:
               type: string
               enum:
-                - get
-                - list
-                - watch
-                - create
-                - delete
-                - update
-                - patch
-
-
+              - get
+              - list
+              - watch
+              - create
+              - delete
+              - update
+              - patch
 connections:
   required:
-    - kubernetes_cluster
+  - kubernetes_cluster
   properties:
     kubernetes_cluster:
-      $ref: massdriver/kubernetes-cluster
-
-
+      "$ref": massdriver/kubernetes-cluster
 artifacts:
   required:
-    - token
+  - token
   properties:
     token:
-      $ref: massdriver/kubernetes-cluster
-
-
+      "$ref": massdriver/kubernetes-cluster
 ui:
   ui:order:
-    - "namespace"
-    - "rules"
+  - namespace
+  - rules
   rules:
     ui:order:
-      - apiGroups
-      - resources
-      - verbs
+    - apiGroups
+    - resources
+    - verbs
     verbs:
-      ui:widget: "checkboxes"
-
+      ui:widget: checkboxes
