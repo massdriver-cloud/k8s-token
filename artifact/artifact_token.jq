@@ -1,1 +1,1 @@
-.outputs.artifact_token.value
+.outputs.artifact_token
